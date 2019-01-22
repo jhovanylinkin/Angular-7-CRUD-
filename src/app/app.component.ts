@@ -8,10 +8,6 @@ import * as M from 'materialize-css';
 })
 export class AppComponent {
   constructor(){
-    M.toast({
-      html:'App initialized',
-      classes: 'rounded blue'
-    });
   }
   title = 'Questions';
 }

@@ -11,11 +11,10 @@ export class ListComponent implements OnInit {
 
   constructor(private _QuestionApi : QuestiosapiService) {
    }
-   list:object;
+  list:object;
   ngOnInit() {
     this._QuestionApi.listQuestions().subscribe(data=>{
-      return this.list= data;
-      M.toast({html:'sds'});
+      return this.list= data["results"];
     });
   }
 }
