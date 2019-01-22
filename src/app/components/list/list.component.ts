@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestiosapiService } from '../../questiosapi.service';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _QuestionApi : QuestiosapiService) {
+   }
+   list:object;
   ngOnInit() {
+    this._QuestionApi.listQuestions().subscribe(data=>{
+      return this.list= data;
+      M.toast({html:'sds'});
+    });
   }
-
 }

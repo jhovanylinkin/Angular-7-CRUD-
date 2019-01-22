@@ -1,3 +1,8 @@
-<p>
-  list works!
-</p>
+<div class="container">
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>Questions</h4></li>
+       <div *ngFor = "let L of list.results">
+        <li class="collection-item">{{ L.question_text }}</li>
+       </div>
+    </ul>
+</div>
