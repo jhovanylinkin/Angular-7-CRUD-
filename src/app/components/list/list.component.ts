@@ -17,4 +17,9 @@ export class ListComponent implements OnInit {
       return this.list= data["results"];
     });
   }
+  reload(){
+    this._QuestionApi.listQuestions().subscribe(data=>{
+      return this.list= data["results"];
+    });
+  }
 }

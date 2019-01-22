@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as M from 'materialize-css';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QuestiosapiService } from '../../questiosapi.service';
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-new-question',
@@ -32,7 +33,7 @@ export class NewQuestionComponent implements OnInit {
     if (this.form.invalid) {
         return;
     }
-    
+
     this._questionsapi.addQuestion({
       question_text: this.form.controls.question_text.value,
       pub_date: this.form.controls.pub_date.value
@@ -42,7 +43,6 @@ export class NewQuestionComponent implements OnInit {
         classes:'rounded green'
       })
     });
-
     this.success = true;
   }
 
