@@ -10,41 +10,47 @@ import { QuestiosapiService } from '../../questiosapi.service';
 })
 export class NewQuestionComponent implements OnInit {
 
-  constructor(private _formBuilder: FormBuilder, private _questionsapi : QuestiosapiService) { }
+  constructor(private _formBuilder: FormBuilder, private _questionsapi: QuestiosapiService) { }
 
   form: FormGroup;
   submitted = false;
   success = false;
-  
-  public List:object;
+
+  public List: object;
 
   ngOnInit() {
     this.form = this._formBuilder.group({
       question_text: ['', Validators.required],
       pub_date: ['', Validators.required]
     });
+
+    this.getList();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
-        return;
+      return;
     }
 
     this._questionsapi.addQuestion({
       question_text: this.form.controls.question_text.value,
       pub_date: this.form.controls.pub_date.value
-    }).subscribe(data=>{
+    }).subscribe(data => {
       this.success = true;
 
-      this._questionsapi.listQuestions().subscribe(data=> {
-        return this.List= data["results"];
-      });
+      this.getList();
 
       M.toast({
-        html:'success',
-        classes:'rounded green'
+        html: 'success',
+        classes: 'rounded green'
       })
+    });
+  }
+
+  getList(){
+    this._questionsapi.listQuestions().subscribe(data => {
+      return this.List = data["results"];
     });
   }
 
