@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { QuestiosapiService } from '../../questiosapi.service';
 import * as M from 'materialize-css';
 
@@ -9,17 +9,14 @@ import * as M from 'materialize-css';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private _QuestionApi : QuestiosapiService) {
+  constructor(/*private _QuestionApi : QuestiosapiService*/) {
    }
-  list:object;
+
+  @Input("parentData") public List;
+
   ngOnInit() {
-    this._QuestionApi.listQuestions().subscribe(data=>{
+    /* this._QuestionApi.listQuestions().subscribe(data=>{
       return this.list= data["results"];
-    });
-  }
-  reload(){
-    this._QuestionApi.listQuestions().subscribe(data=>{
-      return this.list= data["results"];
-    });
+    }); */
   }
 }

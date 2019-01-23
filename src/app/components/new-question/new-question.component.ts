@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import * as M from 'materialize-css';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QuestiosapiService } from '../../questiosapi.service';
-import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'app-new-question',
@@ -12,9 +11,12 @@ import { ListComponent } from '../list/list.component';
 export class NewQuestionComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, private _questionsapi : QuestiosapiService) { }
+
   form: FormGroup;
   submitted = false;
   success = false;
+  
+  public List:object;
 
   ngOnInit() {
     document.addEventListener('DOMContentLoaded', function() {
@@ -38,12 +40,17 @@ export class NewQuestionComponent implements OnInit {
       question_text: this.form.controls.question_text.value,
       pub_date: this.form.controls.pub_date.value
     }).subscribe(data=>{
+      this.success = true;
+
+      this._questionsapi.listQuestions().subscribe(data=> {
+        return this.List= data["results"];
+      });
+
       M.toast({
         html:'success',
         classes:'rounded green'
       })
     });
-    this.success = true;
   }
 
 }

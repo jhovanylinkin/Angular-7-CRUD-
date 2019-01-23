@@ -24,14 +24,4 @@
   </form>
 </div>
 
-<div class="row">
-    <div class="center">
-        <div *ngIf="submitted" class="results">
-            <strong>Example to submit:</strong> 
-            <span>{{ form.controls.question_text.value }}</span>
-        
-            <strong>Date:</strong> 
-            <span>{{ form.controls.pub_date.value }}</span>
-          </div>
-    </div>
-</div>
+<app-list [parentData]="List"></app-list>
