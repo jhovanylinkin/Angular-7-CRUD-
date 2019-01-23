@@ -19,11 +19,6 @@ export class NewQuestionComponent implements OnInit {
   public List:object;
 
   ngOnInit() {
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.datepicker');
-      var instances = M.Datepicker.init(elems, {});
-    });
-
     this.form = this._formBuilder.group({
       question_text: ['', Validators.required],
       pub_date: ['', Validators.required]
