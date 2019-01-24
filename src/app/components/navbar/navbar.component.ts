@@ -6,11 +6,14 @@ import { AppComponent } from '../../app.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
   title = '';
-  
-  constructor(private aPP : AppComponent) {
+  user = '';
+  email_user = '';
+  constructor(private aPP: AppComponent) {
     this.title = aPP.title;
+    this.user = aPP.user;
+    this.email_user = aPP.email_user;
   }
 
   ngOnInit() {

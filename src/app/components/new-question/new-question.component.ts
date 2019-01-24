@@ -16,7 +16,7 @@ export class NewQuestionComponent implements OnInit {
   submitted = false;
   success = false;
 
-  public List: object;
+  public ListOfQuestions: object;
 
   ngOnInit() {
     this.form = this._formBuilder.group({
@@ -30,6 +30,10 @@ export class NewQuestionComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
+      M.toast({
+        html: `Complete the form please 🤦‍♀️`,
+        classes: 'rounded red'
+      });
       return;
     }
 
@@ -37,20 +41,20 @@ export class NewQuestionComponent implements OnInit {
       question_text: this.form.controls.question_text.value,
       pub_date: this.form.controls.pub_date.value
     }).subscribe(data => {
-      this.success = true;
-
+      this.form.reset();
       this.getList();
 
       M.toast({
-        html: 'success',
+        html: 'success ✔',
         classes: 'rounded green'
-      })
+      });
+
     });
   }
 
-  getList(){
+  getList() {
     this._questionsapi.listQuestions().subscribe(data => {
-      return this.List = data["results"];
+      return this.List = data['results'];
     });
   }
 

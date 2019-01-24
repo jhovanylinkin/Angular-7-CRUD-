@@ -12,11 +12,13 @@ export class ListComponent implements OnInit {
   constructor(/*private _QuestionApi : QuestiosapiService*/) {
    }
 
-  @Input("parentData") public List;
+  // tslint:disable-next-line:no-input-rename
+  @Input('parentData') public ListOfQuestions;
 
   ngOnInit() {
     /* this._QuestionApi.listQuestions().subscribe(data=>{
       return this.list= data["results"];
     }); */
   }
+
 }

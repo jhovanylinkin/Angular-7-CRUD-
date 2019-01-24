@@ -1,7 +1,24 @@
 <nav>
-    <div class="nav-wrapper blue">
-      <a href="#" class="brand-logo right">{{ title }}</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-      </ul>
-    </div>
-  </nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">{{title}}</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+    </ul>
+  </div>
+</nav>
+
+<ul id="mobile-demo" class="sidenav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="https://images.unsplash.com/photo-1533727352519-7553fbcbf061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80">
+      </div>
+      <a href="#user"><img class="circle" src="https://avatars1.githubusercontent.com/u/22659298?s=400&u=cd6d8aa2d4b485224004b313a585dd1d11cd43c6&v=4"></a>
+      <a href="#name"><span class="white-text name">{{user}}</span></a>
+      <a href="#email"><span class="white-text email">{{email_user}}</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
