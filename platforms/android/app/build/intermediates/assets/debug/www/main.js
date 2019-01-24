@@ -420,10 +420,10 @@ var QuestiosapiService = /** @class */ (function () {
         };
     }
     QuestiosapiService.prototype.listQuestions = function () {
-        return this._Http.get('http://localhost:8000/polls/');
+        return this._Http.get('http://10.0.2.167:8000/polls/');
     };
     QuestiosapiService.prototype.addQuestion = function (question) {
-        return this._Http.post('http://localhost:8000/polls/results/', question, this.httpOptions).pipe();
+        return this._Http.post('http://10.0.2.167:8000/polls/results/', question, this.httpOptions).pipe();
     };
     QuestiosapiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

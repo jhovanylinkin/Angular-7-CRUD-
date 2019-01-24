@@ -17,10 +17,10 @@ export class QuestiosapiService {
   };
 
   listQuestions(){
-    return this._Http.get('http://localhost:8000/polls/')  
+    return this._Http.get('http://10.0.2.167:8000/polls/')  
   }
 
   addQuestion(question : question):Observable<question>{
-    return this._Http.post<question>('http://localhost:8000/polls/results/',question,this.httpOptions).pipe();
+    return this._Http.post<question>('http://10.0.2.167:8000/polls/results/',question,this.httpOptions).pipe();
   }
 }
