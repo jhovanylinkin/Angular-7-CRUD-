@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
    }
 
   // tslint:disable-next-line:no-input-rename
-  @Input('parentData') public ListOfQuestions;
+  @Input('parentData') List: object;
 
   ngOnInit() {
     /* this._QuestionApi.listQuestions().subscribe(data=>{

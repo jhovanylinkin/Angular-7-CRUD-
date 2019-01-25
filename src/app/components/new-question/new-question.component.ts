@@ -16,7 +16,11 @@ export class NewQuestionComponent implements OnInit {
   submitted = false;
   success = false;
 
-  public ListOfQuestions: object;
+  List: {
+    length: ''
+  };
+
+  Listlength: number;
 
   ngOnInit() {
     this.form = this._formBuilder.group({
@@ -31,7 +35,7 @@ export class NewQuestionComponent implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       M.toast({
-        html: `Complete the form please 🤦‍♀️`,
+        html: `Complete the form please 🤦‍♀️ ${this.List.length}`,
         classes: 'rounded red'
       });
       return;
@@ -54,6 +58,7 @@ export class NewQuestionComponent implements OnInit {
 
   getList() {
     this._questionsapi.listQuestions().subscribe(data => {
+      this.Listlength = data['results'].length;
       return this.List = data['results'];
     });
   }
