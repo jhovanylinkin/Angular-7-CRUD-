@@ -1,4 +1,4 @@
-#Wed Jan 23 15:26:37 MST 2019
+#Fri Jan 25 12:02:20 MST 2019
 base.0=C\:\\Users\\Programador 8\\Documents\\repositories\\Angular\\Questions\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

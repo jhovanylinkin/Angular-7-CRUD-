@@ -74,7 +74,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<app-new-question></app-new-question>\n<!-- <app-list></app-list> -->\n<router-outlet></router-outlet>\n"
+module.exports = "<app-navbar></app-navbar>\n<app-new-question></app-new-question>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -90,14 +90,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! materialize-css */ "./node_modules/materialize-css/dist/js/materialize.js");
+/* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(materialize_css__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'Questions';
+        this.user = 'Jhovany Morales Bruno';
+        this.email_user = 'jhovanymb.info@gmail.com';
     }
     AppComponent.prototype.ngOnInit = function () {
-        document.addEventListener("deviceready", function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = materialize_css__WEBPACK_IMPORTED_MODULE_2__["Sidenav"].init(elems, {});
+            var collapsibles = document.querySelectorAll('.collapsible');
+            var collapsibleInstance = materialize_css__WEBPACK_IMPORTED_MODULE_2__["Collapsible"].init(collapsibles, {
+                accordion: true
+            });
+        });
+        document.addEventListener('deviceready', function () {
             alert(device.platform);
         }, false);
     };
@@ -192,7 +205,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <ul class=\"collection with-header\">\n        <li class=\"collection-header\"><h4>Questions</h4></li>\n       <div *ngFor = \"let L of List\">\n        <li class=\"collection-item\"><strong>{{ L.question_text }} </strong><p style=\"color:red\">{{L.pub_date}}</p></li>\n       </div>\n    </ul>\n</div>"
+module.exports = "<div class=\"container\">\n  <div class=\"divider\"></div>\n  <table class=\"striped highlight\">\n    <thead>\n      <th>Question</th>\n      <th>Answer</th>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let L of List\">\n        <td>{{ L.question_text }}</td>\n        <td>{{L.pub_date}}</td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -219,7 +232,7 @@ var ListComponent = /** @class */ (function () {
         }); */
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])("parentData"),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('parentData'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], ListComponent.prototype, "List", void 0);
     ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -255,7 +268,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n    <div class=\"nav-wrapper blue\">\n      <a href=\"#\" class=\"brand-logo right\">{{ title }}</a>\n      <ul id=\"nav-mobile\" class=\"left hide-on-med-and-down\">\n      </ul>\n    </div>\n  </nav>"
+module.exports = "<nav>\n  <div class=\"nav-wrapper\">\n    <a href=\"#!\" class=\"brand-logo\">{{title}}</a>\n    <a href=\"#\" data-target=\"mobile-demo\" class=\"sidenav-trigger\"><i class=\"material-icons\">menu</i></a>\n    <ul class=\"right hide-on-med-and-down\">\n    </ul>\n  </div>\n</nav>\n\n<ul id=\"mobile-demo\" class=\"sidenav\">\n    <li><div class=\"user-view\">\n      <div class=\"background\">\n        <img src=\"https://images.unsplash.com/photo-1533727352519-7553fbcbf061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80\">\n      </div>\n      <a href=\"#user\"><img class=\"circle\" src=\"https://avatars1.githubusercontent.com/u/22659298?s=400&u=cd6d8aa2d4b485224004b313a585dd1d11cd43c6&v=4\"></a>\n      <a href=\"#name\"><span class=\"white-text name\">{{user}}</span></a>\n      <a href=\"#email\"><span class=\"white-text email\">{{email_user}}</span></a>\n    </div></li>\n    <li><a href=\"#!\"><i class=\"material-icons\">cloud</i>First Link With Icon</a></li>\n    <li><a href=\"#!\">Second Link</a></li>\n    <li><div class=\"divider\"></div></li>\n    <li><a class=\"subheader\">Subheader</a></li>\n    <li><a class=\"waves-effect\" href=\"#!\">Third Link With Waves</a></li>\n  </ul>"
 
 /***/ }),
 
@@ -279,7 +292,11 @@ var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(aPP) {
         this.aPP = aPP;
         this.title = '';
+        this.user = '';
+        this.email_user = '';
         this.title = aPP.title;
+        this.user = aPP.user;
+        this.email_user = aPP.email_user;
     }
     NavbarComponent.prototype.ngOnInit = function () {
     };
@@ -316,7 +333,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\" class=\"col s8 offset-s2\">\n      <h5 class=\"center\" *ngIf=\"success\">Your form is valid!</h5>\n    <div class=\"row\">\n      <div class=\"input-field col s6\">\n        <i class=\"material-icons prefix\">comment</i>\n        <input id=\"icon_prefix\" type=\"text\" class=\"validate\" formControlName=\"question_text\">\n        <label for=\"icon_prefix\">Question</label>\n      </div>\n      <div class=\"input-field col s6\">\n        <i class=\"material-icons prefix\">date_range</i>\n        <input id=\"date\" type=\"text\" class=\"validate\" formControlName=\"pub_date\">\n        <label for=\"date\">when?</label>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col s2 offset-s10\">\n        <button class=\"btn\" type=\"submit\" name=\"action\">Submit\n          <i class=\"material-icons right\">send</i>\n        </button>\n        \n      </div>\n    </div>\n  </form>\n</div>\n\n<app-list [parentData]=\"List\"></app-list>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <h5>Collection of curious questions</h5>\n    <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\" class=\"col s12 m12\">\n      <div class=\"row\">\n        <div class=\"input-field col s12 m6\">\n          <i class=\"material-icons prefix\">help_</i>\n          <input id=\"icon_prefix\" type=\"text\" class=\"validate\" formControlName=\"question_text\" required>\n          <label for=\"icon_prefix\">Question</label>\n        </div>\n        <div class=\"input-field col s12 m6\">\n          <i class=\"material-icons prefix\">question_answer</i>\n          <input id=\"date\" type=\"text\" class=\"validate\" formControlName=\"pub_date\" required>\n          <label for=\"date\">Answer</label>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col s9 m10\"></div>\n        <div class=\"col s2 m2\">\n          <button class=\"btn\" type=\"submit\" name=\"action\">Save\n            <i class=\"material-icons right\">send</i>\n          </button>\n        </div>\n      </div>\n    </form>\n  </div>\n  <h5 *ngIf=\"Listlength == 0\">Nothing to see</h5>\n</div>\n<app-list [parentData]=\"List\"></app-list>\n"
 
 /***/ }),
 
@@ -359,16 +376,20 @@ var NewQuestionComponent = /** @class */ (function () {
         var _this = this;
         this.submitted = true;
         if (this.form.invalid) {
+            materialize_css__WEBPACK_IMPORTED_MODULE_2__["toast"]({
+                html: "Complete the form please \uD83E\uDD26\u200D\u2640\uFE0F " + this.List.length,
+                classes: 'rounded red'
+            });
             return;
         }
         this._questionsapi.addQuestion({
             question_text: this.form.controls.question_text.value,
             pub_date: this.form.controls.pub_date.value
         }).subscribe(function (data) {
-            _this.success = true;
+            _this.form.reset();
             _this.getList();
             materialize_css__WEBPACK_IMPORTED_MODULE_2__["toast"]({
-                html: 'success',
+                html: 'success ✔',
                 classes: 'rounded green'
             });
         });
@@ -376,7 +397,8 @@ var NewQuestionComponent = /** @class */ (function () {
     NewQuestionComponent.prototype.getList = function () {
         var _this = this;
         this._questionsapi.listQuestions().subscribe(function (data) {
-            return _this.List = data["results"];
+            _this.Listlength = data['results'].length;
+            return _this.List = data['results'];
         });
     };
     NewQuestionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -407,6 +429,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! materialize-css */ "./node_modules/materialize-css/dist/js/materialize.js");
+/* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(materialize_css__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
 
 
 
@@ -419,11 +448,24 @@ var QuestiosapiService = /** @class */ (function () {
             })
         };
     }
-    QuestiosapiService.prototype.listQuestions = function () {
-        return this._Http.get('http://10.0.2.167:8000/polls/');
+    QuestiosapiService.prototype.handleError = function (error) {
+        error.error instanceof ErrorEvent ?
+            materialize_css__WEBPACK_IMPORTED_MODULE_5__["toast"]({
+                html: "An error uccurred " + error.error.message,
+                classes: 'rounded red'
+            })
+            : materialize_css__WEBPACK_IMPORTED_MODULE_5__["toast"]({
+                html: "Backend returned code:  &nbsp; <strong>" + error.status + "</strong>",
+                classes: 'rounded orange'
+            });
+        console.log(error.error);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])('Something bad happened; please try again later.');
     };
-    QuestiosapiService.prototype.addQuestion = function (question) {
-        return this._Http.post('http://10.0.2.167:8000/polls/results/', question, this.httpOptions).pipe();
+    QuestiosapiService.prototype.listQuestions = function () {
+        return this._Http.get('http://10.0.2.167:8000/polls/').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+    };
+    QuestiosapiService.prototype.addQuestion = function (_question) {
+        return this._Http.post('http://10.0.2.167:8000/polls/results/', _question, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
     };
     QuestiosapiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
