@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /platforms
+/questions-win32-x64
 
 # dependencies
 /node_modules
